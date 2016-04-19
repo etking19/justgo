@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.justlorry.driver"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        manifestPlaceholders = [manifestApplicationId: "com.justlorry.driver",
+                                onesignal_app_id: "6d0d8142-7b77-42d8-9a62-5ddf8afc61f2",
+                                onesignal_google_project_number: "926891415268"]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.2.1'
+    compile 'com.onesignal:OneSignal:2.+@aar'
+    compile 'com.google.android.gms:play-services-gcm:+'
+    compile 'com.google.android.gms:play-services-analytics:+'
+    compile "com.google.android.gms:play-services-location:+"
+}
